@@ -1,21 +1,21 @@
 %define upstream_name    WWW-RobotRules
 %define upstream_version 6.01
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 3
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	4
 
-Summary:    Parse /robots.txt file
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/WWW/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Parse /robots.txt file
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/WWW/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(AnyDBM_File)
-BuildRequires: perl(Fcntl)
-BuildRequires: perl(URI)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(AnyDBM_File)
+BuildRequires:	perl(Fcntl)
+BuildRequires:	perl(URI)
+BuildArch:	noarch
 
 %description
 This module parses _/robots.txt_ files as specified in "A Standard for
@@ -34,24 +34,30 @@ The following methods are provided:
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
+%__perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes META.yml README
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
 
+%changelog
+* Sun Jan 22 2012 Oden Eriksson <oeriksson@mandriva.com> 6.10.0-3mdv2012.0
++ Revision: 765807
+- rebuilt for perl-5.14.2
+
+* Sat Jan 21 2012 Oden Eriksson <oeriksson@mandriva.com> 6.10.0-2
++ Revision: 764331
+- rebuilt for perl-5.14.x
+
+* Tue May 03 2011 Guillaume Rousse <guillomovitch@mandriva.org> 6.10.0-1
++ Revision: 664982
+- import perl-WWW-RobotRules
 
