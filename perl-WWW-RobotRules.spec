@@ -1,9 +1,9 @@
-%define upstream_name    WWW-RobotRules
+%define upstream_name WWW-RobotRules
 %define upstream_version 6.01
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Release:	5
 
 Summary:	Parse /robots.txt file
 License:	GPL+ or Artistic
