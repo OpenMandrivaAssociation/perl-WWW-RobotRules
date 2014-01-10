@@ -1,14 +1,14 @@
 %define modname	WWW-RobotRules
-%define modver	6.01
+%define modver 6.02
 
 Summary:	Parse /robots.txt file
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
-Release:	9
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
-Source0:	http://www.cpan.org/modules/by-module/WWW/%{modname}-%{modver}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/WWW/WWW-RobotRules-%{modver}.tar.gz
 BuildArch:	noarch
 BuildRequires:	perl-devel
 BuildRequires:	perl(AnyDBM_File)
@@ -45,4 +45,5 @@ The following methods are provided:
 %doc Changes META.yml README
 %{perl_vendorlib}/*
 %{_mandir}/man3/*
+
 
